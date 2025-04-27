@@ -99,8 +99,8 @@ class Identity:
 
         if level == 1:
             identity_detail = self.identity_detail
-            random.shuffle(identity_detail)
-            prompt_identity += identity_detail[0]
+            # random.shuffle(identity_detail)
+            prompt_identity += ','.join(identity_detail)
         elif level == 2:
             for detail in identity_detail:
                 prompt_identity += f",{detail}"

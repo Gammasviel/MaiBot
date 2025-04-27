@@ -41,7 +41,7 @@ def init_prompt():
     prompt += "你现在{mood_info}\n"
     prompt += "你注意到{sender_name}刚刚说：{message_txt}\n"
     prompt += "现在你接下去继续思考，产生新的想法，不要分点输出，输出连贯的内心独白"
-    prompt += "思考时可以想想如何对群聊内容进行回复。回复的要求是：平淡一些，简短一些，说中文，尽量不要说你说过的话\n"
+    prompt += "思考时可以想想如何对群聊内容进行回复。回复的要求是：平淡一些，<g_limit>，说中文，尽量不要说你说过的话\n"
     prompt += "请注意不要输出多余内容(包括前后缀，冒号和引号，括号， 表情，等)，不要带有括号和动作描写"
     prompt += "记得结合上述的消息，生成内心想法，文字不要浮夸，注意你就是{bot_name}，{bot_name}指的就是你。"
     Prompt(prompt, "sub_heartflow_prompt_before")
@@ -181,12 +181,12 @@ class SubHeartflow:
         prompt_personality += personality_core
 
         personality_sides = individuality.personality.personality_sides
-        random.shuffle(personality_sides)
-        prompt_personality += f",{personality_sides[0]}"
+        # random.shuffle(personality_sides)
+        prompt_personality += f",{','.join(personality_sides)}"
 
         identity_detail = individuality.identity.identity_detail
-        random.shuffle(identity_detail)
-        prompt_personality += f",{identity_detail[0]}"
+        # random.shuffle(identity_detail)
+        prompt_personality += f",{','.join(identity_detail)}"
 
         # 关系
         who_chat_in_group = [
@@ -270,12 +270,12 @@ class SubHeartflow:
                 extra_info_prompt += f"- {item['name']}: {item['content']}\n"
 
         personality_sides = individuality.personality.personality_sides
-        random.shuffle(personality_sides)
-        prompt_personality += f",{personality_sides[0]}"
+        # random.shuffle(personality_sides)
+        prompt_personality += f",{','.join(personality_sides)}"
 
         identity_detail = individuality.identity.identity_detail
-        random.shuffle(identity_detail)
-        prompt_personality += f",{identity_detail[0]}"
+        # random.shuffle(identity_detail)
+        prompt_personality += f",{','.join(identity_detail)}"
 
         current_thinking_info = self.current_mind
         mood_info = self.current_state.mood
@@ -318,12 +318,12 @@ class SubHeartflow:
         prompt_personality += personality_core
 
         personality_sides = individuality.personality.personality_sides
-        random.shuffle(personality_sides)
-        prompt_personality += f",{personality_sides[0]}"
+        # random.shuffle(personality_sides)
+        prompt_personality += f",{','.join(personality_sides)}"
 
         identity_detail = individuality.identity.identity_detail
-        random.shuffle(identity_detail)
-        prompt_personality += f",{identity_detail[0]}"
+        # random.shuffle(identity_detail)
+        prompt_personality += f",{','.join(identity_detail)}"
 
         # print("麦麦闹情绪了1")
         current_thinking_info = self.current_mind

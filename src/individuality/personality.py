@@ -134,8 +134,8 @@ class Personality:
 
         if level == 2:
             personality_sides = self.personality_sides
-            random.shuffle(personality_sides)
-            prompt_personality += f",{personality_sides[0]}"
+            # random.shuffle(personality_sides)
+            prompt_personality += f",{','.join(personality_sides)}"
         elif level == 3:
             personality_sides = self.personality_sides
             for side in personality_sides:

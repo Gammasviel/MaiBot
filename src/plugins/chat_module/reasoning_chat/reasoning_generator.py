@@ -92,6 +92,12 @@ class ResponseGenerator:
                 sender_name=sender_name,
                 stream_id=message.chat_stream.stream_id,
             )
+            
+        # +++ Gamma Part
+        import gamma_patch
+        
+        prompt = gamma_patch.modify_prompt(prompt, 'Response Generator', gernerate_next=True, logger_level=gamma_patch.logger.notice)
+                
         logger.info(f"构建prompt时间: {t_build_prompt.human_readable}")
 
         try:
@@ -114,7 +120,8 @@ class ResponseGenerator:
         #     reasoning_content=reasoning_content,
         #     # reasoning_content_check=reasoning_content_check if global_config.enable_kuuki_read else ""
         # )
-
+        content = gamma_patch.modify_output(content, "Response Generator", logger_level=gamma_patch.logger.notice, enabled=True)
+        
         return content
 
     # def _save_to_db(

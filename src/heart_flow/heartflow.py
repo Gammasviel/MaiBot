@@ -121,12 +121,12 @@ class Heartflow:
         prompt_personality += personality_core
 
         personality_sides = individuality.personality.personality_sides
-        random.shuffle(personality_sides)
-        prompt_personality += f",{personality_sides[0]}"
+        # random.shuffle(personality_sides)
+        prompt_personality += f",{','.join(personality_sides)}"
 
         identity_detail = individuality.identity.identity_detail
-        random.shuffle(identity_detail)
-        prompt_personality += f",{identity_detail[0]}"
+        # random.shuffle(identity_detail)
+        prompt_personality += f",{','.join(identity_detail)}"
 
         personality_info = prompt_personality
 
@@ -190,12 +190,12 @@ class Heartflow:
         prompt_personality += personality_core
 
         personality_sides = individuality.personality.personality_sides
-        random.shuffle(personality_sides)
-        prompt_personality += f",{personality_sides[0]}"
+        # random.shuffle(personality_sides)
+        prompt_personality += f",{','.join(personality_sides)}"
 
         identity_detail = individuality.identity.identity_detail
-        random.shuffle(identity_detail)
-        prompt_personality += f",{identity_detail[0]}"
+        # random.shuffle(identity_detail)
+        prompt_personality += f",{','.join(identity_detail)}"
 
         personality_info = prompt_personality
         mood_info = self.current_state.mood
