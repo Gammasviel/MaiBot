@@ -214,10 +214,10 @@ def raw_main():
     # 返回MainSystem实例
     return MainSystem()
 
-from gamma_patch import patch_classes
+from gamma_patch import ClassPatcher
 
 if __name__ == "__main__":
-    patch_classes(r'C:\Users\13731\Desktop\Projects\MaiMBot\MaiM-with-u\MaiBot')
+    ClassPatcher(r'C:\Users\13731\Desktop\Projects\MaiMBot\MaiM-with-u\MaiBot')
     try:
         # 获取MainSystem实例
         main_system = raw_main()
